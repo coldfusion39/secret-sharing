@@ -28,28 +28,26 @@ def mod_inverse(k, prime):
 
 
 def random_polynomial(degree, intercept, upper_bound):
-    """ Generates a random polynomial with positive coefficients.
-    """
+    """ Generates a random polynomial with positive coefficients. """
     if degree < 0:
         raise ValueError('Degree must be a non-negative number.')
     coefficients = [intercept]
     for i in range(degree):
-        random_coeff = randint(0, upper_bound-1)
+        random_coeff = randint(0, upper_bound - 1)
         coefficients.append(random_coeff)
     return coefficients
 
 
 def get_polynomial_points(coefficients, num_points, prime):
     """ Calculates the first n polynomial points.
-        [ (1, f(1)), (2, f(2)), ... (n, f(n)) ]
-    """
+        [ (1, f(1)), (2, f(2)), ... (n, f(n)) ] """
     points = []
-    for x in range(1, num_points+1):
+    for x in range(1, num_points + 1):
         # start with x=1 and calculate the value of y
         y = coefficients[0]
         # calculate each term and add it to y, using modular math
         for i in range(1, len(coefficients)):
-            exponentiation = (x**i) % prime
+            exponentiation = (int(x)**i) % prime
             term = (coefficients[i] * exponentiation) % prime
             y = (y + term) % prime
         # add the point to the list of points

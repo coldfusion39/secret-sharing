@@ -33,15 +33,12 @@ def calculate_mersenne_primes():
 SMALLEST_257BIT_PRIME = (2**256 + 297)
 SMALLEST_321BIT_PRIME = (2**320 + 27)
 SMALLEST_385BIT_PRIME = (2**384 + 231)
-STANDARD_PRIMES = calculate_mersenne_primes() + [
-    SMALLEST_257BIT_PRIME, SMALLEST_321BIT_PRIME, SMALLEST_385BIT_PRIME
-]
+STANDARD_PRIMES = calculate_mersenne_primes() + [SMALLEST_257BIT_PRIME, SMALLEST_321BIT_PRIME, SMALLEST_385BIT_PRIME]
 STANDARD_PRIMES.sort()
 
 
 def get_large_enough_prime(batch):
-    """ Returns a prime number that is greater all the numbers in the batch.
-    """
+    """ Returns a prime number that is greater all the numbers in the batch. """
     # build a list of primes
     primes = STANDARD_PRIMES
     # find a prime that is greater than all the numbers in the batch
